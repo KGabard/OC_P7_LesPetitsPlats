@@ -1,0 +1,3 @@
+const initIndexPage = async () => {}
+
+initIndexPage()
