@@ -1,3 +1,5 @@
-const initIndexPage = async () => {}
+const initIndexPage = async () => {
+  console.log('hello')
+}
 
 initIndexPage()

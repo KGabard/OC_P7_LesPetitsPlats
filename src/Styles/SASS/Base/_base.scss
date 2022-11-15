@@ -4,11 +4,14 @@
   padding: 0;
 }
 
-// body {
-//   display: flex;
-//   flex-direction: column;
-//   font-family: $font-default;
-//   max-width: 1400px;
-//   margin: 0 auto;
-//   padding: 0 $gutter-desktop;
-// }
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 $gutter-desktop;
+}
+
+.test {
+  color: red;
+}

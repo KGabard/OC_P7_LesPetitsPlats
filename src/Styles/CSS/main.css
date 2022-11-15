@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 96px;
+}
+
+.test {
+  color: red;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 8px;
+}
+.header__logo {
+  height: 96px;
+}/*# sourceMappingURL=main.css.map */

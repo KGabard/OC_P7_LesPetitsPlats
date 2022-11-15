@@ -1,65 +1,51 @@
-// $typographies: (
-//   header: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 44px,
-//     font-weight: 400,
-//   ),
-//   title: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 36px,
-//     font-weight: 400,
-//   ),
-//   subtitle-bold: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 24px,
-//     font-weight: 500,
-//   ),
-//   subtitle: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 24px,
-//     font-weight: 400,
-//   ),
-//   body-bold: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 18px,
-//     font-weight: 700,
-//   ),
-//   body: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 18px,
-//     font-weight: 400,
-//   ),
-//   card-body-big: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 16px,
-//     font-weight: 400,
-//   ),
-//   card-body-medium: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 14px,
-//     font-weight: 400,
-//   ),
-//   card-body-small: (
-//     font-family: (
-//       $font-default,
-//     ),
-//     font-size: 12px,
-//     font-weight: 400,
-//   ),
-// );
+$typographies: (
+  label-bold: (
+    font-family: (
+      $font-lato,
+    ),
+    font-size: 18px,
+    font-weight: 700,
+  ),
+  label: (
+    font-family: (
+      $font-lato,
+    ),
+    font-size: 18px,
+    font-weight: 400,
+  ),
+  label-small: (
+    font-family: (
+      $font-lato,
+    ),
+    font-size: 14px,
+    font-weight: 700,
+  ),
+  card-title: (
+    font-family: (
+      $font-lato,
+    ),
+    font-size: 18px,
+    font-weight: 400,
+  ),
+  card-subtitle-bold: (
+    font-family: (
+      $font-lato,
+    ),
+    font-size: 12px,
+    font-weight: 700,
+  ),
+  card-subtitle: (
+    font-family: (
+      $font-lato,
+    ),
+    font-size: 12px,
+    font-weight: 400,
+  ),
+  card-text: (
+    font-family: (
+      $font-roboto,
+    ),
+    font-size: 12px,
+    font-weight: 400,
+  ),
+);
