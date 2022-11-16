@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["xo"],
+  "extends": "xo",
   "overrides": [
     {
       "extends": ["xo-typescript", "prettier"],
@@ -11,6 +11,7 @@
       "files": ["*.ts", "*.tsx"],
       "rules": {
         "@typescript-eslint/no-unnecessary-type-assertion": "off",
+        "@typescript-eslint/no-unused-expressions": "off",
         "no-useless-escape": "off",
         "@typescript-eslint/no-floating-promises": "off",
         "operator-assignment": "off",
@@ -23,6 +24,5 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {
-  }
+  "rules": {}
 }

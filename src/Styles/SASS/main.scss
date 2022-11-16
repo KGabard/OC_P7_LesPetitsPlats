@@ -4,4 +4,10 @@
 @import './Utils/animations';
 @import './Base/base';
 
+@import './Components/search-input';
+@import './Components/tag-list';
+@import './Components/search-filters-container';
+@import './Components/search-filter';
+
 @import './Layouts/header';
+@import './Layouts/search-section';

@@ -1,5 +1,5 @@
 "use strict";
-// export type PhotographerDataType = {
+// Export type PhotographerDataType = {
 //   name: string
 //   id: number
 //   city: string

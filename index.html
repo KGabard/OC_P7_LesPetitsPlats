@@ -31,6 +31,76 @@
     <img src="./src/Assets/Logos/logo.png" alt="Les petits plats" class="header__logo">
   </header>
 
+  <main class="main-section">
+    <section class="search-section">
+      <div class="search-input">
+        <label class="search-input__label" for="search-input__input">Recherche de recette</label>
+        <input type="text" class="search-input__input" id="search-input__input" placeholder="Rechercher une recette">
+        <i class="search-input__icon fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <ul class="tag-list">
+        <li class="tag-list__item tag-list__item--ingredient">
+          <p class="tag-list__item__label">Ingrédient</p>
+          <i class="tag-list__item__delete-icon fa-regular fa-circle-xmark"></i>
+        </li>
+        <li class="tag-list__item tag-list__item--device">
+          <p class="tag-list__item__label">Appareil</p>
+          <i class="tag-list__item__delete-icon fa-regular fa-circle-xmark"></i>
+        </li>
+        <li class="tag-list__item tag-list__item--utensil">
+          <p class="tag-list__item__label">Ustensile</p>
+          <i class="tag-list__item__delete-icon fa-regular fa-circle-xmark"></i>
+        </li>
+      </ul>
+
+      <div class="search-filters-container">
+        <div class="search-filter search-filter--ingredient">
+          <label class="search-filter__label search-filter__label--active" for="search-filter--ingredient__input">Ingrédients</label>
+          <input type="text" class="search-filter__input" id="search-filter--ingredient__input">
+          <i class="search-filter__chevron-icon fa-solid fa-chevron-down"></i>
+          <ul class="search-filter__list">
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+          </ul>
+        </div>
+        <div class="search-filter search-filter--device">
+          <label class="search-filter__label search-filter__label--active" for="search-filter--device__input">Appareils</label>
+          <input type="text" class="search-filter__input" id="search-filter--device__input">
+          <i class="search-filter__chevron-icon fa-solid fa-chevron-down"></i>
+          <ul class="search-filter__list">
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+          </ul>
+        </div>
+        <div class="search-filter search-filter--utensil">
+          <label class="search-filter__label search-filter__label--active" for="search-filter--utensil__input">Ustensiles</label>
+          <input type="text" class="search-filter__input" id="search-filter--utensil__input">
+          <i class="search-filter__chevron-icon fa-solid fa-chevron-down"></i>
+          <ul class="search-filter__list">
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+            <li class="search-filter__list__item">Item</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+
+  </main>
+
   <script type="module" src="./src/Scripts/JS/Pages/index.js"></script>
 </body>
 

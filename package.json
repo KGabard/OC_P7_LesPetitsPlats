@@ -8,6 +8,9 @@
     "lint": "eslint src/Scripts/TS --max-warnings=0",
     "lint:fix": "eslint src/Scripts/TS --fix"
   },
+  "gitHooks": {
+    "pre-push": "npm run lint"
+  },
   "keywords": [],
   "author": "KGabard",
   "license": "ISC",
@@ -20,7 +23,6 @@
     "eslint-config-xo-typescript": "^0.54.1",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4",
-    "yorkie": "^2.0.0"
+    "typescript": "^4.9.3"
   }
 }

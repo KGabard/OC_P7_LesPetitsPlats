@@ -1,0 +1,25 @@
+.tag-list {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &__item {
+    padding: 8px 16px;
+    display: flex;
+    gap: 8px;
+    border-radius: 4px;
+    @include filters-color;
+
+    &__label {
+      @include typographies(label-small);
+      color: white;
+    }
+
+    &__delete-icon {
+      color: white;
+      font-size: 18px;
+    }
+  }
+}

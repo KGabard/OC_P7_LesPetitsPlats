@@ -10,12 +10,12 @@
 //   }
 // }
 
-// @mixin typographies($type) {
-//   $typography: map-get($typographies, $type);
-//   @each $attribute, $val in $typography {
-//     #{$attribute}: #{$val};
-//   }
-// }
+@mixin typographies($type) {
+  $typography: map-get($typographies, $type);
+  @each $attribute, $val in $typography {
+    #{$attribute}: #{$val};
+  }
+}
 
 // @mixin ellipsis($line-count) {
 //   display: -webkit-box;
@@ -24,3 +24,22 @@
 //   overflow: hidden;
 //   text-overflow: ellipsis;
 // }
+
+@mixin filters-color {
+  &--ingredient {
+    background-color: $highlight-ingredient;
+  }
+  &--device {
+    background-color: $highlight-device;
+  }
+  &--utensil {
+    background-color: $highlight-utensil;
+  }
+}
+
+@mixin screen-reader-only {
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+}

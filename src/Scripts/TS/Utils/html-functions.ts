@@ -10,4 +10,3 @@ export const closeElmt = (elmt: HTMLElement) => {
 export const openElmt = (elmt: HTMLElement) => {
   elmt.classList.add(`${elmt.classList[0]}--active`)
 }
-

@@ -1,5 +1,7 @@
-const initIndexPage = async () => {
-  console.log('hello')
+import { handleSearchFilters } from '../Components/search-filters.js'
+
+const initIndexPage = () => {
+  handleSearchFilters()
 }
 
 initIndexPage()
