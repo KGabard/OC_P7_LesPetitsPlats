@@ -47,6 +47,13 @@ export const displayListItems = () => {
 // EventListeners
 //---------------
 export const handleSearchFilters = () => {
+    // FilterEmlts.forEach((filterElmt) => {
+    //   filterElmt.addEventListener('click', (e) => {
+    //     e.preventDefault()
+    //     const target = e.target as HTMLElement
+    //     focusFilter(filterElmt, target)
+    //   })
+    // })
     document.addEventListener('click', (e) => {
         const target = e.target;
         const targetFilterElmt = target.closest('.search-filter');

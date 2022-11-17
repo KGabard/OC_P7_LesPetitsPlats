@@ -25,15 +25,40 @@
 //   text-overflow: ellipsis;
 // }
 
-@mixin filters-color {
-  &--ingredient {
-    background-color: $highlight-ingredient;
+@mixin filters-color($parent-elmt: null, $lighten: 0%) {
+  $custom-color-ingredient: transparent;
+  $custom-color-device: transparent;
+  $custom-color-utensil: transparent;
+  @if $lighten > 0 {
+    $custom-color-ingredient: lighten($highlight-ingredient, $lighten);
+    $custom-color-device: lighten($highlight-device, $lighten);
+    $custom-color-utensil: lighten($highlight-utensil, $lighten);
+  } @else {
+    $custom-color-ingredient: darken($highlight-ingredient, -$lighten);
+    $custom-color-device: darken($highlight-device, -$lighten);
+    $custom-color-utensil: darken($highlight-utensil, -$lighten);
   }
-  &--device {
-    background-color: $highlight-device;
-  }
-  &--utensil {
-    background-color: $highlight-utensil;
+
+  @if $parent-elmt {
+    #{$parent-elmt}--ingredient & {
+      background-color: $custom-color-ingredient;
+    }
+    #{$parent-elmt}--device & {
+      background-color: $custom-color-device;
+    }
+    #{$parent-elmt}--utensil & {
+      background-color: $custom-color-utensil;
+    }
+  } @else {
+    &--ingredient {
+      background-color: $custom-color-ingredient;
+    }
+    &--device {
+      background-color: $custom-color-device;
+    }
+    &--utensil {
+      background-color: $custom-color-utensil;
+    }
   }
 }
 

@@ -1,4 +1,3 @@
-"use strict";
 // Export type PhotographerDataType = {
 //   name: string
 //   id: number
@@ -8,3 +7,4 @@
 //   price: number
 //   portrait: string
 // }
+export {};

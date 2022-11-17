@@ -55,13 +55,13 @@ body {
   border-radius: 4px;
 }
 .tag-list__item--ingredient {
-  background-color: #3282F7;
+  background-color: #3282f7;
 }
 .tag-list__item--device {
-  background-color: #68D9A4;
+  background-color: #68d9a4;
 }
 .tag-list__item--utensil {
-  background-color: #ED6454;
+  background-color: #ed6454;
 }
 .tag-list__item__label {
   font-family: Lato, sans-serif;
@@ -72,6 +72,7 @@ body {
 .tag-list__item__delete-icon {
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .search-filters-container {
@@ -86,29 +87,46 @@ body {
   height: 68px;
   position: relative;
   border-radius: 4px;
+  transition: width 150ms ease-in-out;
 }
 .search-filter--ingredient {
-  background-color: #3282F7;
+  background-color: #3282f7;
 }
 .search-filter--device {
-  background-color: #68D9A4;
+  background-color: #68d9a4;
 }
 .search-filter--utensil {
-  background-color: #ED6454;
+  background-color: #ed6454;
+}
+.search-filter--active {
+  z-index: 100;
+  width: 672px;
+  max-width: 100%;
+  transition-duration: 350ms;
+  border-radius: 4px 4px 0 0;
 }
 .search-filter--active .search-filter__input {
   display: block;
 }
 .search-filter--active .search-filter__label {
-  display: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
 }
 .search-filter--active .search-filter__chevron-icon {
   transform: rotate(180deg);
+}
+.search-filter--active .search-filter__list {
+  display: grid;
 }
 .search-filter:not(.search-filter--active) .search-filter__label {
   display: flex;
 }
 .search-filter:not(.search-filter--active) .search-filter__input {
+  display: none;
+}
+.search-filter:not(.search-filter--active) .search-filter__list {
   display: none;
 }
 .search-filter__label {
@@ -133,6 +151,15 @@ body {
   background-color: transparent;
   color: white;
 }
+.search-filter__input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.search-filter__input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.search-filter__input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
 .search-filter__chevron-icon {
   font-size: 18px;
   position: absolute;
@@ -140,6 +167,66 @@ body {
   right: 16px;
   color: white;
   cursor: pointer;
+}
+.search-filter__list {
+  max-height: 400px;
+  grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
+  list-style: none;
+  border-radius: 0 0 4px 4px;
+  padding: 8px 16px 8px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.search-filter--ingredient .search-filter__list {
+  background-color: #3282f7;
+}
+.search-filter--device .search-filter__list {
+  background-color: #68d9a4;
+}
+.search-filter--utensil .search-filter__list {
+  background-color: #ed6454;
+}
+.search-filter__list::-webkit-scrollbar {
+  width: 8px;
+}
+.search-filter__list::-webkit-scrollbar-track {
+  border-radius: 20px;
+}
+.search-filter__list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+.search-filter--ingredient .search-filter__list::-webkit-scrollbar-thumb {
+  background-color: #7caffa;
+}
+.search-filter--device .search-filter__list::-webkit-scrollbar-thumb {
+  background-color: #a5e8c9;
+}
+.search-filter--utensil .search-filter__list::-webkit-scrollbar-thumb {
+  background-color: #f4a399;
+}
+.search-filter__list__item {
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search-filter__list__item:hover {
+  transition: background-color 150ms ease-in;
+}
+.search-filter--ingredient .search-filter__list__item:hover {
+  background-color: #0966ed;
+}
+.search-filter--device .search-filter__list__item:hover {
+  background-color: #3fcf8b;
+}
+.search-filter--utensil .search-filter__list__item:hover {
+  background-color: #e83a26;
 }
 
 .header {

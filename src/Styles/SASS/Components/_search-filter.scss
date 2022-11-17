@@ -1,25 +1,50 @@
 .search-filter {
   width: $filter-min-width;
   height: $filter-min-height;
-  @include filters-color;
+  @include filters-color();
   position: relative;
   border-radius: 4px;
+  transition: width 150ms ease-in-out;
 
-  &--active &__input {
-    display: block;
-  }
-  &--active &__label {
-    display: none;
-  }
-  &--active &__chevron-icon {
-    transform: rotate(180deg);
+  &--active {
+    z-index: 100;
+    width: $filter-max-width;
+    max-width: 100%;
+    transition-duration: 350ms;
+    border-radius: 4px 4px 0 0;
+    .search-filter {
+      &__input {
+        display: block;
+      }
+
+      &__label {
+        @include screen-reader-only;
+      }
+
+      &__chevron-icon {
+        transform: rotate(180deg);
+      }
+
+      &__list {
+        display: grid;
+      }
+    }
   }
 
-  &:not(&--active) &__label {
-    display: flex;
-  }
-  &:not(&--active) &__input {
-    display: none;
+  &:not(&--active) {
+    .search-filter {
+      &__label {
+        display: flex;
+      }
+
+      &__input {
+        display: none;
+      }
+
+      &__list {
+        display: none;
+      }
+    }
   }
 
   &__label {
@@ -40,6 +65,9 @@
     padding: 16px 16px 8px;
     background-color: transparent;
     color: white;
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
   }
 
   &__chevron-icon {
@@ -49,5 +77,41 @@
     right: 16px;
     color: white;
     cursor: pointer;
+  }
+
+  &__list {
+    max-height: $filter-max-height;
+    grid-template-columns: repeat(auto-fit, minmax($tag-min-width, 1fr));
+    list-style: none;
+    @include filters-color('.search-filter');
+    border-radius: 0 0 4px 4px;
+    padding: 8px 16px 8px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 8px;
+      &-track {
+        border-radius: 20px;
+      }
+      &-thumb {
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        @include filters-color('.search-filter', 15%);
+      }
+    }
+
+    &__item {
+      @include typographies(label);
+      color: white;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover {
+        @include filters-color('.search-filter', -10%);
+        transition: background-color 150ms ease-in;
+      }
+    }
   }
 }

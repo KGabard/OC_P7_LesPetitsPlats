@@ -7,3 +7,8 @@
 //   price: number
 //   portrait: string
 // }
+
+export type TagType = {
+  label: string
+  type: 'ingredient' | 'device' | 'utensil'
+}
