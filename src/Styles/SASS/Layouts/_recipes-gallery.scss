@@ -1,0 +1,8 @@
+.recipes-gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax($recipe-card-min-width, 1fr)
+  );
+  gap: 48px;
+}

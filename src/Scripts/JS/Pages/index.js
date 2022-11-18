@@ -1,4 +1,5 @@
 import { displayListItems, handleSearchFilters, } from '../Components/search-filters.js';
+import { displaySelectedTags } from '../Components/tag-list.js';
 // Import { displayTagList } from '../Components/tag-list.js'
 import { TagList } from '../Models/tag-list.js';
 import { Tag } from '../Models/tag.js';
@@ -26,5 +27,6 @@ const initIndexPage = () => {
     handleSearchFilters();
     displayListItems();
     // displayTagList()
+    displaySelectedTags();
 };
 initIndexPage();

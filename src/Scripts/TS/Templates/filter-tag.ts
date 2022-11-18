@@ -1,4 +1,6 @@
-import type { Tag } from '../Models/tag'
+import { displaySelectedTags } from '../Components/tag-list.js'
+import type { Tag } from '../Models/tag.js'
+import { selectedTagsList } from '../Pages/index.js'
 
 export class FilterTag {
   _tag: Tag
@@ -7,13 +9,19 @@ export class FilterTag {
     this._tag = tag
   }
 
-  get tagElmt() {
-    const tagElmt = Object.assign(document.createElement('li'), {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      innerHTML: this._tag.label,
-      className: 'search-filter__list__item',
+  _addSelectEvent(tagElmt: HTMLLIElement) {
+    tagElmt.addEventListener('click', () => {
+      selectedTagsList.addTag(this._tag)
+      displaySelectedTags()
     })
+  }
+
+  get tagElmt() {
+    const tagElmt = document.createElement('li')
+    tagElmt.classList.add('search-filter__list__item')
     tagElmt.setAttribute('data-id', this._tag.id)
+    tagElmt.innerHTML = this._tag.label
+    this._addSelectEvent(tagElmt)
     return tagElmt
   }
 }
