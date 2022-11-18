@@ -1,8 +1,10 @@
+import type { TagList } from '../Models/tag-list.js'
 import {
-  devicesArray,
-  ingredientsArray,
-  utensilsArray,
+  appliancesList,
+  ingredientsList,
+  utensilsList,
 } from '../Pages/index.js'
+import { FilterTag } from '../Templates/filter-tag.js'
 import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js'
 
 //-------------
@@ -11,7 +13,7 @@ import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js'
 const filterEmlts = document.querySelectorAll(
   '.search-filter'
 )! as NodeListOf<HTMLDivElement>
-const listElmts = document.querySelectorAll(
+const filterListElmts = document.querySelectorAll(
   '.search-filter__list'
 )! as NodeListOf<HTMLUListElement>
 
@@ -40,24 +42,21 @@ const closeFilterElmt = (filterElmt: HTMLDivElement) => {
   closeElmt(filterElmt)
 }
 
-const addItemToList = (list: HTMLUListElement, currentArray: string[]) => {
-  currentArray.forEach((item) => {
-    const itemElmt = document.createElement('li')
-    itemElmt.classList.add('search-filter__list__item')
-    itemElmt.innerHTML = item
-    list.appendChild(itemElmt)
+const addItemToList = (list: HTMLUListElement, currentList: TagList) => {
+  currentList.list.forEach((tag) => {
+    list.appendChild(new FilterTag(tag).tagElmt)
   })
 }
 
 export const displayListItems = () => {
-  listElmts.forEach((list) => {
+  filterListElmts.forEach((list) => {
     list.innerHTML = ''
     if (list.classList.contains(`${list.classList[0]}--ingredient`))
-      addItemToList(list, ingredientsArray)
-    if (list.classList.contains(`${list.classList[0]}--device`))
-      addItemToList(list, devicesArray)
+      addItemToList(list, ingredientsList)
+    if (list.classList.contains(`${list.classList[0]}--appliance`))
+      addItemToList(list, appliancesList)
     if (list.classList.contains(`${list.classList[0]}--utensil`))
-      addItemToList(list, utensilsArray)
+      addItemToList(list, utensilsList)
   })
 }
 

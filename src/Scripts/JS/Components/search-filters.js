@@ -1,10 +1,11 @@
-import { devicesArray, ingredientsArray, utensilsArray, } from '../Pages/index.js';
+import { appliancesList, ingredientsList, utensilsList, } from '../Pages/index.js';
+import { FilterTag } from '../Templates/filter-tag.js';
 import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js';
 //-------------
 // DOM Elements
 //-------------
 const filterEmlts = document.querySelectorAll('.search-filter');
-const listElmts = document.querySelectorAll('.search-filter__list');
+const filterListElmts = document.querySelectorAll('.search-filter__list');
 //----------
 // Functions
 //----------
@@ -24,23 +25,20 @@ const closeFilterElmt = (filterElmt) => {
     inputElmt.value = '';
     closeElmt(filterElmt);
 };
-const addItemToList = (list, currentArray) => {
-    currentArray.forEach((item) => {
-        const itemElmt = document.createElement('li');
-        itemElmt.classList.add('search-filter__list__item');
-        itemElmt.innerHTML = item;
-        list.appendChild(itemElmt);
+const addItemToList = (list, currentList) => {
+    currentList.list.forEach((tag) => {
+        list.appendChild(new FilterTag(tag).tagElmt);
     });
 };
 export const displayListItems = () => {
-    listElmts.forEach((list) => {
+    filterListElmts.forEach((list) => {
         list.innerHTML = '';
         if (list.classList.contains(`${list.classList[0]}--ingredient`))
-            addItemToList(list, ingredientsArray);
-        if (list.classList.contains(`${list.classList[0]}--device`))
-            addItemToList(list, devicesArray);
+            addItemToList(list, ingredientsList);
+        if (list.classList.contains(`${list.classList[0]}--appliance`))
+            addItemToList(list, appliancesList);
         if (list.classList.contains(`${list.classList[0]}--utensil`))
-            addItemToList(list, utensilsArray);
+            addItemToList(list, utensilsList);
     });
 };
 //---------------

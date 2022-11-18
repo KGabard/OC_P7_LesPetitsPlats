@@ -57,7 +57,7 @@ body {
 .tag-list__item--ingredient {
   background-color: #3282f7;
 }
-.tag-list__item--device {
+.tag-list__item--appliance {
   background-color: #68d9a4;
 }
 .tag-list__item--utensil {
@@ -92,7 +92,7 @@ body {
 .search-filter--ingredient {
   background-color: #3282f7;
 }
-.search-filter--device {
+.search-filter--appliance {
   background-color: #68d9a4;
 }
 .search-filter--utensil {
@@ -171,6 +171,7 @@ body {
 .search-filter__list {
   max-height: 400px;
   grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
+  row-gap: 4px;
   list-style: none;
   border-radius: 0 0 4px 4px;
   padding: 8px 16px 8px;
@@ -180,7 +181,7 @@ body {
 .search-filter--ingredient .search-filter__list {
   background-color: #3282f7;
 }
-.search-filter--device .search-filter__list {
+.search-filter--appliance .search-filter__list {
   background-color: #68d9a4;
 }
 .search-filter--utensil .search-filter__list {
@@ -199,7 +200,7 @@ body {
 .search-filter--ingredient .search-filter__list::-webkit-scrollbar-thumb {
   background-color: #7caffa;
 }
-.search-filter--device .search-filter__list::-webkit-scrollbar-thumb {
+.search-filter--appliance .search-filter__list::-webkit-scrollbar-thumb {
   background-color: #a5e8c9;
 }
 .search-filter--utensil .search-filter__list::-webkit-scrollbar-thumb {
@@ -209,10 +210,10 @@ body {
   font-family: Lato, sans-serif;
   font-size: 18px;
   font-weight: 400;
-  color: white;
-  padding: 4px 8px;
   display: flex;
   align-items: center;
+  color: white;
+  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -222,7 +223,7 @@ body {
 .search-filter--ingredient .search-filter__list__item:hover {
   background-color: #0966ed;
 }
-.search-filter--device .search-filter__list__item:hover {
+.search-filter--appliance .search-filter__list__item:hover {
   background-color: #3fcf8b;
 }
 .search-filter--utensil .search-filter__list__item:hover {

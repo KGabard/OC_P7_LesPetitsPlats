@@ -17,25 +17,25 @@
   }
 }
 
-// @mixin ellipsis($line-count) {
-//   display: -webkit-box;
-//   -webkit-line-clamp: $line-count;
-//   -webkit-box-orient: vertical;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
+@mixin ellipsis($line-count) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line-count;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 @mixin filters-color($parent-elmt: null, $lighten: 0%) {
   $custom-color-ingredient: transparent;
-  $custom-color-device: transparent;
+  $custom-color-appliance: transparent;
   $custom-color-utensil: transparent;
   @if $lighten > 0 {
     $custom-color-ingredient: lighten($highlight-ingredient, $lighten);
-    $custom-color-device: lighten($highlight-device, $lighten);
+    $custom-color-appliance: lighten($highlight-appliance, $lighten);
     $custom-color-utensil: lighten($highlight-utensil, $lighten);
   } @else {
     $custom-color-ingredient: darken($highlight-ingredient, -$lighten);
-    $custom-color-device: darken($highlight-device, -$lighten);
+    $custom-color-appliance: darken($highlight-appliance, -$lighten);
     $custom-color-utensil: darken($highlight-utensil, -$lighten);
   }
 
@@ -43,8 +43,8 @@
     #{$parent-elmt}--ingredient & {
       background-color: $custom-color-ingredient;
     }
-    #{$parent-elmt}--device & {
-      background-color: $custom-color-device;
+    #{$parent-elmt}--appliance & {
+      background-color: $custom-color-appliance;
     }
     #{$parent-elmt}--utensil & {
       background-color: $custom-color-utensil;
@@ -53,8 +53,8 @@
     &--ingredient {
       background-color: $custom-color-ingredient;
     }
-    &--device {
-      background-color: $custom-color-device;
+    &--appliance {
+      background-color: $custom-color-appliance;
     }
     &--utensil {
       background-color: $custom-color-utensil;

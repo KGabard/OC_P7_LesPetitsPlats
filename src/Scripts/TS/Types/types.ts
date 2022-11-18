@@ -10,5 +10,5 @@
 
 export type TagType = {
   label: string
-  type: 'ingredient' | 'device' | 'utensil'
+  type: 'ingredient' | 'appliance' | 'utensil'
 }

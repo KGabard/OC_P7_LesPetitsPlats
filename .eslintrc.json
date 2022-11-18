@@ -16,6 +16,7 @@
         "@typescript-eslint/no-floating-promises": "off",
         "operator-assignment": "off",
         "radix": "off",
+        "capitalized-comments": "off",
         "prettier/prettier": "error"
       }
     }
