@@ -1,4 +1,5 @@
 .recipe-card {
+  width: 100%;
   height: $recipe-card-height;
   max-width: $recipe-card-max-width;
   margin: auto;
@@ -19,11 +20,13 @@
     flex: 52 52 0px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
     &__header {
       display: flex;
       justify-content: space-between;
-      padding: 16px 16px 0;
+      padding: $recipe-card-padding;
+      padding-bottom: 0;
       align-items: center;
       gap: 24px;
 
@@ -45,6 +48,39 @@
       &__time {
         @include typographies(card-title-bold);
         white-space: nowrap;
+      }
+    }
+
+    &__description {
+      display: flex;
+      height: 0;
+      flex: 1 1 0px;
+      padding: $recipe-card-padding;
+      padding-top: 0;
+
+      &__ingredients-list {
+        width: 0;
+        flex: 1 1 0px;
+        list-style: none;
+        @include typographies(card-subtitle);
+        @include ellipsis(7);
+
+        &__item {
+          &:nth-of-type(n+8) {
+            opacity: 0;
+          }
+          .strong {
+            @include typographies(card-subtitle-bold);
+          }
+        }
+      }
+
+      &__text {
+        height: fit-content;
+        width: 0;
+        flex: 1 1 0px;
+        @include typographies(card-text);
+        @include ellipsis(7);
       }
     }
   }
