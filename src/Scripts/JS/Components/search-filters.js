@@ -1,64 +1,51 @@
 import { appliancesList, ingredientsList, utensilsList, } from '../Pages/index.js';
-import { FilterTag } from '../Templates/filter-tag.js';
-import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js';
+import { FilterButton } from '../Templates/filter-button.js';
 //-------------
 // DOM Elements
 //-------------
-const filterEmlts = document.querySelectorAll('.search-filter');
-const filterListElmts = document.querySelectorAll('.search-filter__list');
+const filtersContainer = document.querySelector('.search-filters-container');
 //----------
 // Functions
 //----------
-const focusFilterElmt = (filterElmt, target) => {
-    const currentChevronElmt = filterElmt.querySelector('.search-filter__chevron-icon');
-    if (target === currentChevronElmt) {
-        elmtIsActive(filterElmt)
-            ? closeFilterElmt(filterElmt)
-            : openElmt(filterElmt);
-    }
-    else {
-        openElmt(filterElmt);
-    }
-};
-const closeFilterElmt = (filterElmt) => {
-    const inputElmt = filterElmt.querySelector('.search-filter__input');
-    inputElmt.value = '';
-    closeElmt(filterElmt);
-};
-const addItemToList = (list, currentList) => {
-    currentList.list.forEach((tag) => {
-        list.appendChild(new FilterTag(tag).tagElmt);
-    });
-};
-export const displayListItems = () => {
-    filterListElmts.forEach((list) => {
-        list.innerHTML = '';
-        if (list.classList.contains(`${list.classList[0]}--ingredient`))
-            addItemToList(list, ingredientsList);
-        if (list.classList.contains(`${list.classList[0]}--appliance`))
-            addItemToList(list, appliancesList);
-        if (list.classList.contains(`${list.classList[0]}--utensil`))
-            addItemToList(list, utensilsList);
-    });
+const ingredientsFilterButton = new FilterButton('ingredient');
+const appliancesFilterButton = new FilterButton('appliance');
+const utensilsFilterButton = new FilterButton('utensil');
+const filterButtons = [
+    ingredientsFilterButton,
+    appliancesFilterButton,
+    utensilsFilterButton,
+];
+filterButtons.forEach((button) => {
+    filtersContainer.appendChild(button.buttonElmt);
+});
+export const initSearchFilters = () => {
+    ingredientsFilterButton.updateTagList(ingredientsList.list);
+    appliancesFilterButton.updateTagList(appliancesList.list);
+    utensilsFilterButton.updateTagList(utensilsList.list);
+    searchFilterEvents();
 };
 //---------------
 // EventListeners
 //---------------
-export const handleSearchFilters = () => {
+export const searchFilterEvents = () => {
     document.addEventListener('click', (e) => {
         const target = e.target;
         const targetFilterElmt = target.closest('.search-filter');
         if (targetFilterElmt) {
-            filterEmlts.forEach((filterElmt) => {
-                if (filterElmt !== targetFilterElmt)
-                    closeFilterElmt(filterElmt);
+            filterButtons.forEach((button) => {
+                if (button.buttonElmt !== targetFilterElmt)
+                    button.closeButton();
             });
             e.preventDefault();
-            focusFilterElmt(targetFilterElmt, target);
+            filterButtons.forEach((button) => {
+                if (button.buttonElmt === targetFilterElmt) {
+                    button.openButton(target);
+                }
+            });
         }
         else {
-            filterEmlts.forEach((filterElmt) => {
-                closeFilterElmt(filterElmt);
+            filterButtons.forEach((button) => {
+                button.closeButton();
             });
         }
     });

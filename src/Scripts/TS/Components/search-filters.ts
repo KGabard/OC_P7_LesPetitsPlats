@@ -1,81 +1,60 @@
-import type { TagList } from '../Models/tag-list.js'
 import {
   appliancesList,
   ingredientsList,
   utensilsList,
 } from '../Pages/index.js'
-import { FilterTag } from '../Templates/filter-tag.js'
-import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js'
+import { FilterButton } from '../Templates/filter-button.js'
 
 //-------------
 // DOM Elements
 //-------------
-const filterEmlts = document.querySelectorAll(
-  '.search-filter'
-)! as NodeListOf<HTMLDivElement>
-const filterListElmts = document.querySelectorAll(
-  '.search-filter__list'
-)! as NodeListOf<HTMLUListElement>
+const filtersContainer = document.querySelector(
+  '.search-filters-container'
+)! as HTMLDivElement
 
 //----------
 // Functions
 //----------
-const focusFilterElmt = (filterElmt: HTMLDivElement, target: HTMLElement) => {
-  const currentChevronElmt = filterElmt.querySelector(
-    '.search-filter__chevron-icon'
-  )! as HTMLElement
+const ingredientsFilterButton = new FilterButton('ingredient')
+const appliancesFilterButton = new FilterButton('appliance')
+const utensilsFilterButton = new FilterButton('utensil')
+const filterButtons = [
+  ingredientsFilterButton,
+  appliancesFilterButton,
+  utensilsFilterButton,
+]
 
-  if (target === currentChevronElmt) {
-    elmtIsActive(filterElmt)
-      ? closeFilterElmt(filterElmt)
-      : openElmt(filterElmt)
-  } else {
-    openElmt(filterElmt)
-  }
-}
+filterButtons.forEach((button) => {
+  filtersContainer.appendChild(button.buttonElmt)
+})
 
-const closeFilterElmt = (filterElmt: HTMLDivElement) => {
-  const inputElmt = filterElmt.querySelector(
-    '.search-filter__input'
-  )! as HTMLInputElement
-  inputElmt.value = ''
-  closeElmt(filterElmt)
-}
-
-const addItemToList = (list: HTMLUListElement, currentList: TagList) => {
-  currentList.list.forEach((tag) => {
-    list.appendChild(new FilterTag(tag).tagElmt)
-  })
-}
-
-export const displayListItems = () => {
-  filterListElmts.forEach((list) => {
-    list.innerHTML = ''
-    if (list.classList.contains(`${list.classList[0]}--ingredient`))
-      addItemToList(list, ingredientsList)
-    if (list.classList.contains(`${list.classList[0]}--appliance`))
-      addItemToList(list, appliancesList)
-    if (list.classList.contains(`${list.classList[0]}--utensil`))
-      addItemToList(list, utensilsList)
-  })
+export const initSearchFilters = () => {
+  ingredientsFilterButton.updateTagList(ingredientsList.list)
+  appliancesFilterButton.updateTagList(appliancesList.list)
+  utensilsFilterButton.updateTagList(utensilsList.list)
+  searchFilterEvents()
 }
 
 //---------------
 // EventListeners
 //---------------
-export const handleSearchFilters = () => {
+export const searchFilterEvents = () => {
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement
     const targetFilterElmt = target.closest('.search-filter')! as HTMLDivElement
     if (targetFilterElmt) {
-      filterEmlts.forEach((filterElmt) => {
-        if (filterElmt !== targetFilterElmt) closeFilterElmt(filterElmt)
+      filterButtons.forEach((button) => {
+        if (button.buttonElmt !== targetFilterElmt) button.closeButton()
       })
       e.preventDefault()
-      focusFilterElmt(targetFilterElmt, target)
+      filterButtons.forEach((button) => {
+        if (button.buttonElmt === targetFilterElmt) {
+          button.openButton(target)
+        }
+      })
     } else {
-      filterEmlts.forEach((filterElmt) => {
-        closeFilterElmt(filterElmt)
+      filterButtons.forEach((button) => {
+        button.closeButton()
       })
     }
   })
