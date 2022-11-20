@@ -1,6 +1,7 @@
 import {
   appliancesList,
-  ingredientsList,
+  recipesList,
+  // ingredientsList,
   utensilsList,
 } from '../Pages/index.js'
 import { FilterButton } from '../Templates/filter-button.js'
@@ -29,7 +30,7 @@ filterButtons.forEach((button) => {
 })
 
 export const initSearchFilters = () => {
-  ingredientsFilterButton.updateTagList(ingredientsList.list)
+  ingredientsFilterButton.updateTagList(recipesList.ingredientsList.list)
   appliancesFilterButton.updateTagList(appliancesList.list)
   utensilsFilterButton.updateTagList(utensilsList.list)
   searchFilterEvents()

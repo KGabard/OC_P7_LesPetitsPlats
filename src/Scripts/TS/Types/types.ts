@@ -1,14 +1,16 @@
-// Export type PhotographerDataType = {
-//   name: string
-//   id: number
-//   city: string
-//   country: string
-//   tagline: string
-//   price: number
-//   portrait: string
-// }
+type IngredientType = {
+  ingredient: string
+  quantity?: number
+  unit?: string
+}
 
-export type TagType = {
-  label: string
-  type: 'ingredient' | 'appliance' | 'utensil'
+export type RecipeDataType = {
+  id: number
+  name: string
+  servings: number
+  ingredients: IngredientType[]
+  time: number
+  description: string
+  appliance: string
+  ustensils: string[]
 }

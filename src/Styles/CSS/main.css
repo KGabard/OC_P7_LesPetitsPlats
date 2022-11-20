@@ -287,6 +287,7 @@ body {
 }
 .recipe-card__infos__description {
   display: flex;
+  gap: 16px;
   height: 0;
   flex: 1 1 0px;
   padding: 20px;
@@ -294,6 +295,7 @@ body {
 }
 .recipe-card__infos__description__ingredients-list {
   width: 0;
+  max-height: 98%;
   flex: 1 1 0px;
   list-style: none;
   font-family: Lato, sans-serif;
@@ -305,7 +307,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.recipe-card__infos__description__ingredients-list__item:nth-of-type(n+8) {
+.recipe-card__infos__description__ingredients-list__item:nth-of-type(n + 8) {
   opacity: 0;
 }
 .recipe-card__infos__description__ingredients-list__item .strong {
