@@ -1,65 +1,80 @@
 import { FilterTag } from './filter-tag.js'
 import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js'
 import type { Tag } from '../Models/tag.js'
+import { TagList } from '../Models/tag-list.js'
 
 export class FilterButton {
-  _tagList: Tag[]
+  _tagList: TagList
+  _filteredTaglist: TagList
   _type: 'ingredient' | 'appliance' | 'utensil'
-  _buttonElement: HTMLDivElement
+  _buttonElmt: HTMLDivElement
 
   constructor(type: 'ingredient' | 'appliance' | 'utensil') {
-    this._tagList = []
+    this._tagList = new TagList()
+    this._filteredTaglist = new TagList()
     this._type = type
-    this._buttonElement = this._createButtonElmt()
+    this._buttonElmt = this._createButtonElmt()
+    this._handleInputEvent()
   }
 
   get buttonElmt() {
-    return this._buttonElement
+    return this._buttonElmt
   }
 
   openButton(clickTarget: HTMLElement) {
-    if (clickTarget === this.chevronElmt) {
-      elmtIsActive(this.buttonElmt)
+    if (clickTarget === this._chevronElmt) {
+      elmtIsActive(this._buttonElmt)
         ? this.closeButton()
-        : openElmt(this.buttonElmt)
+        : openElmt(this._buttonElmt)
     } else {
-      openElmt(this.buttonElmt)
+      openElmt(this._buttonElmt)
     }
   }
 
   closeButton() {
-    this.inputElmt.value = ''
-    closeElmt(this.buttonElmt)
+    this._inputElmt.value = ''
+    this._filteredTaglist.replaceTagList(this._tagList)
+    this._displayTagList()
+    closeElmt(this._buttonElmt)
   }
 
-  updateTagList(newTagList: Tag[]) {
-    this._tagList = newTagList
-    this.displayTagList()
+  updateTagList(newTagList: TagList) {
+    this._tagList.replaceTagList(newTagList)
+    this._filteredTaglist.replaceTagList(this._tagList)
+    this._displayTagList()
   }
 
-  displayTagList() {
-    this.listElmt.innerHTML = ''
-    this._tagList.forEach((tag) => {
-      this.listElmt.appendChild(new FilterTag(tag).tagElmt)
+  _displayTagList() {
+    this._listElmt.innerHTML = ''
+    this._filteredTaglist.list.forEach((tag) => {
+      this._listElmt.appendChild(new FilterTag(tag).tagElmt)
     })
   }
 
-  get listElmt() {
-    return this.buttonElmt.querySelector(
+  get _listElmt() {
+    return this._buttonElmt.querySelector(
       '.search-filter__list'
     )! as HTMLUListElement
   }
 
-  get chevronElmt() {
-    return this.buttonElmt.querySelector(
+  get _chevronElmt() {
+    return this._buttonElmt.querySelector(
       '.search-filter__chevron-icon'
     )! as HTMLElement
   }
 
-  get inputElmt() {
-    return this.buttonElmt.querySelector(
+  get _inputElmt() {
+    return this._buttonElmt.querySelector(
       '.search-filter__input'
     )! as HTMLInputElement
+  }
+
+  _handleInputEvent() {
+    this._inputElmt.addEventListener('input', () => {
+      this._filteredTaglist.replaceTagList(this._tagList)
+      this._filteredTaglist.filterList(this._inputElmt.value)
+      this._displayTagList()
+    })
   }
 
   _createButtonElmt() {

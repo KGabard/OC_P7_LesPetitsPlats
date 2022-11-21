@@ -32,6 +32,11 @@
   }
 
   &:not(&--active) {
+    &:hover {
+      //! Darken filter button
+      // @include filters-color($lighten: -10%);
+      // background-color: red;
+    }
     .search-filter {
       &__label {
         display: flex;

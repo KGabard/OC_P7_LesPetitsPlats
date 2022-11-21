@@ -240,6 +240,11 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+}
+.recipe-card:hover {
+  transform: scale(1.05);
 }
 .recipe-card__picture {
   height: 0;

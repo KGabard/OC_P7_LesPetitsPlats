@@ -38,19 +38,19 @@ export class Recipe {
     _createIngredientTags() {
         const tags = new TagList();
         this._recipeData.ingredients.forEach((ingredient) => {
-            tags.addTag(new Tag(capitalizeFirstLetter(ingredient.ingredient), 'ingredient'));
+            tags.addTag(new Tag(ingredient.ingredient, 'ingredient'));
         });
         return tags;
     }
     _createApplianceTags() {
         const tags = new TagList();
-        tags.addTag(new Tag(capitalizeFirstLetter(this._recipeData.appliance), 'appliance'));
+        tags.addTag(new Tag(this._recipeData.appliance, 'appliance'));
         return tags;
     }
     _createUtensilTags() {
         const tags = new TagList();
         this._recipeData.ustensils.forEach((utensil) => {
-            tags.addTag(new Tag(capitalizeFirstLetter(utensil), 'utensil'));
+            tags.addTag(new Tag(utensil, 'utensil'));
         });
         return tags;
     }

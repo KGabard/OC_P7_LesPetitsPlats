@@ -31,15 +31,9 @@ export class RecipesList {
     const utensilsList = new TagList()
 
     this.list.forEach((recipe) => {
-      recipe.ingredientTags.list.forEach((ingredientTag) => {
-        ingredientsList.addTag(ingredientTag)
-      })
-      recipe.applianceTags.list.forEach((applianceTag) => {
-        appliancesList.addTag(applianceTag)
-      })
-      recipe.utensilTags.list.forEach((utensilTag) => {
-        utensilsList.addTag(utensilTag)
-      })
+      ingredientsList.addTagList(recipe.ingredientTags)
+      appliancesList.addTagList(recipe.applianceTags)
+      utensilsList.addTagList(recipe.utensilTags)
     })
 
     ingredientsList.sortByTagLabel()

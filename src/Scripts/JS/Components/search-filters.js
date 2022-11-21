@@ -19,9 +19,9 @@ filterButtons.forEach((button) => {
     filtersContainer.appendChild(button.buttonElmt);
 });
 export const initSearchFilters = () => {
-    ingredientsFilterButton.updateTagList(recipesList.ingredientsList.list);
-    appliancesFilterButton.updateTagList(recipesList.appliancesList.list);
-    utensilsFilterButton.updateTagList(recipesList.utensilsList.list);
+    ingredientsFilterButton.updateTagList(recipesList.ingredientsList);
+    appliancesFilterButton.updateTagList(recipesList.appliancesList);
+    utensilsFilterButton.updateTagList(recipesList.utensilsList);
     searchFilterEvents();
 };
 //---------------

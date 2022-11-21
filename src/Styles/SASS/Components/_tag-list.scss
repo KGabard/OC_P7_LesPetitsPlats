@@ -10,7 +10,7 @@
     display: flex;
     gap: 8px;
     border-radius: 4px;
-    @include filters-color;
+    @include filters-color();
 
     &__label {
       @include typographies(label-small);

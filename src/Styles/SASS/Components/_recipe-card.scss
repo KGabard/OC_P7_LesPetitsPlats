@@ -8,6 +8,12 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   &__picture {
     height: 0;
