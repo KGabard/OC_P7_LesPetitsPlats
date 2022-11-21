@@ -1,6 +1,4 @@
-import { appliancesList, recipesList, 
-// ingredientsList,
-utensilsList, } from '../Pages/index.js';
+import { recipesList } from '../Pages/index.js';
 import { FilterButton } from '../Templates/filter-button.js';
 //-------------
 // DOM Elements
@@ -22,8 +20,8 @@ filterButtons.forEach((button) => {
 });
 export const initSearchFilters = () => {
     ingredientsFilterButton.updateTagList(recipesList.ingredientsList.list);
-    appliancesFilterButton.updateTagList(appliancesList.list);
-    utensilsFilterButton.updateTagList(utensilsList.list);
+    appliancesFilterButton.updateTagList(recipesList.appliancesList.list);
+    utensilsFilterButton.updateTagList(recipesList.utensilsList.list);
     searchFilterEvents();
 };
 //---------------

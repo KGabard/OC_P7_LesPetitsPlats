@@ -1,3 +1,4 @@
+// Function that check if 'main-class--active' exist
 export const elmtIsActive = (elmt: HTMLElement) =>
   elmt.classList.contains(elmt.classList[0] + '--active')
 

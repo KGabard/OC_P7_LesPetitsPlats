@@ -2,11 +2,15 @@ import type { Recipe } from '../Models/recipe.js'
 
 export class RecipeCard {
   _recipe: Recipe
-  cardElmt: HTMLElement
+  _cardElmt: HTMLElement
 
   constructor(recipe: Recipe) {
     this._recipe = recipe
-    this.cardElmt = this._createCardElmt()
+    this._cardElmt = this._createCardElmt()
+  }
+
+  get cardElmt() {
+    return this._cardElmt
   }
 
   _addIngredientItemElmts(cardElmt: HTMLElement) {

@@ -1,7 +1,10 @@
 export class RecipeCard {
     constructor(recipe) {
         this._recipe = recipe;
-        this.cardElmt = this._createCardElmt();
+        this._cardElmt = this._createCardElmt();
+    }
+    get cardElmt() {
+        return this._cardElmt;
     }
     _addIngredientItemElmts(cardElmt) {
         const list = cardElmt.querySelector('.recipe-card__infos__description__ingredients-list');

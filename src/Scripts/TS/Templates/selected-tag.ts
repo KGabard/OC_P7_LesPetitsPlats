@@ -1,12 +1,18 @@
 import { displaySelectedTags } from '../Components/tag-list.js'
 import type { Tag } from '../Models/tag.js'
-import { selectedTagsList } from '../Pages/index.js'
+import { recipesList } from '../Pages/index.js'
 
 export class SelectedTag {
   _tag: Tag
+  _tagElmt: HTMLLIElement
 
   constructor(tag: Tag) {
     this._tag = tag
+    this._tagElmt = this._createTagElmt()
+  }
+
+  get tagElmt() {
+    return this._tagElmt
   }
 
   _addDeleteEvent(tagElmt: HTMLLIElement) {
@@ -14,12 +20,12 @@ export class SelectedTag {
       '.tag-list__item__delete-icon'
     )! as HTMLElement
     deleteIcon.addEventListener('click', () => {
-      selectedTagsList.removeTag(this._tag.id)
+      recipesList.selectedTagsList.removeTag(this._tag.id)
       displaySelectedTags()
     })
   }
 
-  get tagElmt() {
+  _createTagElmt() {
     const tagBaseClass = 'tag-list__item'
     let tagTypeClass = ''
 

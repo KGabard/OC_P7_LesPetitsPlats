@@ -1,3 +1,4 @@
+// Function that check if 'main-class--active' exist
 export const elmtIsActive = (elmt) => elmt.classList.contains(elmt.classList[0] + '--active');
 // Function that removes 'main-class--active' class
 export const closeElmt = (elmt) => {

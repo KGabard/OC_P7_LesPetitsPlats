@@ -5,10 +5,16 @@ import { TagList } from './tag-list.js'
 export class RecipesList {
   list: Recipe[]
   ingredientsList: TagList
+  appliancesList: TagList
+  utensilsList: TagList
+  selectedTagsList: TagList
 
   constructor() {
     this.list = this._importRecipesData()
-    this.ingredientsList = this._createIngredientsList()
+    this.ingredientsList = this._createTagsList().ingredientsList
+    this.appliancesList = this._createTagsList().appliancesList
+    this.utensilsList = this._createTagsList().utensilsList
+    this.selectedTagsList = new TagList()
   }
 
   _importRecipesData() {
@@ -19,14 +25,27 @@ export class RecipesList {
     return importedRecipesList
   }
 
-  _createIngredientsList() {
-    const ingredientList = new TagList()
+  _createTagsList() {
+    const ingredientsList = new TagList()
+    const appliancesList = new TagList()
+    const utensilsList = new TagList()
+
     this.list.forEach((recipe) => {
       recipe.ingredientTags.list.forEach((ingredientTag) => {
-        ingredientList.addTag(ingredientTag)
+        ingredientsList.addTag(ingredientTag)
+      })
+      recipe.applianceTags.list.forEach((applianceTag) => {
+        appliancesList.addTag(applianceTag)
+      })
+      recipe.utensilTags.list.forEach((utensilTag) => {
+        utensilsList.addTag(utensilTag)
       })
     })
-    ingredientList.sortByTagLabel()
-    return ingredientList
+
+    ingredientsList.sortByTagLabel()
+    appliancesList.sortByTagLabel()
+    utensilsList.sortByTagLabel()
+
+    return { ingredientsList, appliancesList, utensilsList }
   }
 }

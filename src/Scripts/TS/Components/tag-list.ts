@@ -1,4 +1,4 @@
-import { selectedTagsList } from '../Pages/index.js'
+import { recipesList } from '../Pages/index.js'
 import { SelectedTag } from '../Templates/selected-tag.js'
 
 //-------------
@@ -11,7 +11,7 @@ const taglistEmlt = document.querySelector('.tag-list')! as HTMLUListElement
 //----------
 export const displaySelectedTags = () => {
   taglistEmlt.innerHTML = ''
-  selectedTagsList.list.forEach((tag) => {
+  recipesList.selectedTagsList.list.forEach((tag) => {
     taglistEmlt.appendChild(new SelectedTag(tag).tagElmt)
   })
 }
