@@ -38,4 +38,10 @@ export class TagList {
         const normalizedFilter = normalizeString(filter);
         this._list = this._list.filter((tag) => tag.id.includes(normalizedFilter));
     }
+    includesTag(targetTag) {
+        if (this._list.find((tag) => tag.id === targetTag.id)) {
+            return true;
+        }
+        return false;
+    }
 }

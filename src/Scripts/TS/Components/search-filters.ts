@@ -24,10 +24,14 @@ filterButtons.forEach((button) => {
   filtersContainer.appendChild(button.buttonElmt)
 })
 
+export const resetFilterButtonsTagList = () => {
+  ingredientsFilterButton.resetTagList(recipesList.ingredientsList)
+  appliancesFilterButton.resetTagList(recipesList.appliancesList)
+  utensilsFilterButton.resetTagList(recipesList.utensilsList)
+}
+
 export const initSearchFilters = () => {
-  ingredientsFilterButton.updateTagList(recipesList.ingredientsList)
-  appliancesFilterButton.updateTagList(recipesList.appliancesList)
-  utensilsFilterButton.updateTagList(recipesList.utensilsList)
+  resetFilterButtonsTagList()
   searchFilterEvents()
 }
 

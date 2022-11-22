@@ -13,7 +13,7 @@ const recipesGalleryEmlt = document.querySelector(
 //----------
 export const displayRecipeCards = () => {
   recipesGalleryEmlt.innerHTML = ''
-  recipesList.list.forEach((recipe) => {
+  recipesList.filteredList.forEach((recipe) => {
     recipesGalleryEmlt.appendChild(new RecipeCard(recipe).cardElmt)
   })
 }

@@ -38,7 +38,7 @@ export class FilterButton {
     closeElmt(this._buttonElmt)
   }
 
-  updateTagList(newTagList: TagList) {
+  resetTagList(newTagList: TagList) {
     this._tagList.replaceTagList(newTagList)
     this._filteredTaglist.replaceTagList(this._tagList)
     this._displayTagList()

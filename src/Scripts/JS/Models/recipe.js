@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from '../Utils/js-functions.js';
+import { capitalizeFirstLetter, normalizeString, } from '../Utils/js-functions.js';
 import { TagList } from './tag-list.js';
 import { Tag } from './tag.js';
 export class Recipe {
@@ -34,6 +34,36 @@ export class Recipe {
             ingredientList,
             text: this._recipeData.description,
         };
+    }
+    includesString(string) {
+        const normalizedString = normalizeString(string);
+        let isIncluded = false;
+        if (normalizeString(this._recipeData.name).includes(normalizedString))
+            isIncluded = true;
+        this._recipeData.ingredients.forEach((ingredient) => {
+            if (normalizeString(ingredient.ingredient).includes(normalizedString))
+                isIncluded = true;
+        });
+        if (normalizeString(this._recipeData.description).includes(normalizedString))
+            isIncluded = true;
+        return isIncluded;
+    }
+    includesTag(tag) {
+        let isIncluded = false;
+        switch (tag.type) {
+            case 'ingredient':
+                isIncluded = this.ingredientTags.includesTag(tag);
+                break;
+            case 'appliance':
+                isIncluded = this.applianceTags.includesTag(tag);
+                break;
+            case 'utensil':
+                isIncluded = this.utensilTags.includesTag(tag);
+                break;
+            default:
+                break;
+        }
+        return isIncluded;
     }
     _createIngredientTags() {
         const tags = new TagList();

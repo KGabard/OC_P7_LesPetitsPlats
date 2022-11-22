@@ -9,7 +9,7 @@ const recipesGalleryEmlt = document.querySelector('.recipes-gallery');
 //----------
 export const displayRecipeCards = () => {
     recipesGalleryEmlt.innerHTML = '';
-    recipesList.list.forEach((recipe) => {
+    recipesList.filteredList.forEach((recipe) => {
         recipesGalleryEmlt.appendChild(new RecipeCard(recipe).cardElmt);
     });
 };
