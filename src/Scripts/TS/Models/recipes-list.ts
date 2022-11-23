@@ -1,10 +1,12 @@
+// import { recipesData } from '../../../Data/recipes.js'
+// "Could not find a declaration file for module"
 import { recipesData } from '../Data/recipes.js'
-import { normalizeString } from '../Utils/js-functions.js'
+import { recipesList } from '../Pages/index.js'
 import { Recipe } from './recipe.js'
 import { TagList } from './tag-list.js'
 
 export class RecipesList {
-  list: Recipe[]
+  originList: Recipe[]
   filteredList: Recipe[]
   ingredientsList: TagList
   appliancesList: TagList
@@ -12,28 +14,40 @@ export class RecipesList {
   selectedTagsList: TagList
 
   constructor() {
-    this.list = this._importRecipesData()
-    this.filteredList = this.list
+    this.originList = this._importRecipesData()
+    this.filteredList = this.originList
     this.ingredientsList = new TagList()
     this.appliancesList = new TagList()
     this.utensilsList = new TagList()
-    this._resetTagsList()
+    this._updateTagsList()
     this.selectedTagsList = new TagList()
   }
 
   resetFilteredList() {
-    this.filteredList = this.list
-    this._resetTagsList()
+    this.filteredList = this.originList
+    this._updateTagsList()
   }
 
-  filterList(filter: string) {
+  filterListByKeyword(filter: string) {
     this.filteredList = this.filteredList.filter((recipe) =>
-      recipe.includesString(filter)
+      recipe.includesKeyword(filter)
     )
-    this._resetTagsList()
+    this._updateTagsList()
   }
 
-  _resetTagsList() {
+  filterListBySelectedTags() {
+    this.filteredList = this.filteredList.filter((recipe) => {
+      if (recipe.includesTagList(this.selectedTagsList)) {
+        console.log(recipe.name)
+      }
+
+      return recipe.includesTagList(this.selectedTagsList)
+    })
+    console.log(this.filteredList.length)
+    this._updateTagsList()
+  }
+
+  _updateTagsList() {
     this.ingredientsList.emptyList()
     this.appliancesList.emptyList()
     this.utensilsList.emptyList()

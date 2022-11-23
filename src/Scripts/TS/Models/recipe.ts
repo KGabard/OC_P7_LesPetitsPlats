@@ -56,43 +56,51 @@ export class Recipe {
     }
   }
 
-  includesString(string: string) {
-    const normalizedString = normalizeString(string)
-    let isIncluded = false
+  includesKeyword(keyword: string) {
+    keyword = normalizeString(keyword)
 
-    if (normalizeString(this._recipeData.name).includes(normalizedString))
-      isIncluded = true
+    if (normalizeString(this._recipeData.name).includes(keyword)) return true
     this._recipeData.ingredients.forEach((ingredient) => {
-      if (normalizeString(ingredient.ingredient).includes(normalizedString))
-        isIncluded = true
+      if (normalizeString(ingredient.ingredient).includes(keyword)) return true
     })
-    if (
-      normalizeString(this._recipeData.description).includes(normalizedString)
-    )
-      isIncluded = true
+    if (normalizeString(this._recipeData.description).includes(keyword))
+      return true
 
-    return isIncluded
+    return false
   }
 
   includesTag(tag: Tag) {
-    let isIncluded = false
-
     switch (tag.type) {
       case 'ingredient':
-        isIncluded = this.ingredientTags.includesTag(tag)
+        if (this.ingredientTags.includesTag(tag)) return true
         break
       case 'appliance':
-        isIncluded = this.applianceTags.includesTag(tag)
+        if (this.applianceTags.includesTag(tag)) return true
         break
       case 'utensil':
-        isIncluded = this.utensilTags.includesTag(tag)
+        if (this.utensilTags.includesTag(tag)) return true
         break
 
       default:
         break
     }
 
-    return isIncluded
+    return false
+  }
+
+  includesTagList(taglist: TagList) {
+    // console.log('selectedTags:')
+    // console.log(taglist)
+    // console.log('recipe')
+    // console.log(this._recipeData.name)
+    // console.log(this.ingredientTags)
+    let tagListIncluded = true
+    taglist.list.forEach((tag) => {
+      // console.log(this.includesTag(tag))
+
+      if (!this.includesTag(tag)) tagListIncluded = false
+    })
+    return tagListIncluded
   }
 
   _createIngredientTags() {

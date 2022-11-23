@@ -1,4 +1,6 @@
+import { updateFilterButtonsTagLists } from '../Components/search-filters.js'
 import { displaySelectedTags } from '../Components/tag-list.js'
+import { displayRecipeCards } from '../Layouts/recipes-gallery.js'
 import type { Tag } from '../Models/tag.js'
 import { recipesList } from '../Pages/index.js'
 
@@ -19,6 +21,11 @@ export class FilterTag {
     tagElmt.addEventListener('click', () => {
       recipesList.selectedTagsList.addTag(this._tag)
       displaySelectedTags()
+
+      recipesList.filterListBySelectedTags()
+
+      displayRecipeCards()
+      updateFilterButtonsTagLists()
     })
   }
 

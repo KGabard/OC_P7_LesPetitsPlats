@@ -358,4 +358,5 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(368px, 1fr));
   gap: 48px;
+  margin-bottom: 72px;
 }/*# sourceMappingURL=main.css.map */

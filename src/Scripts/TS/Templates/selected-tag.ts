@@ -1,6 +1,8 @@
+import { updateFilterButtonsTagLists } from '../Components/search-filters.js'
 import { displaySelectedTags } from '../Components/tag-list.js'
+import { displayRecipeCards } from '../Layouts/recipes-gallery.js'
 import type { Tag } from '../Models/tag.js'
-import { recipesList } from '../Pages/index.js'
+import { recipesList, searchInput } from '../Pages/index.js'
 
 export class SelectedTag {
   _tag: Tag
@@ -22,6 +24,14 @@ export class SelectedTag {
     deleteIcon.addEventListener('click', () => {
       recipesList.selectedTagsList.removeTag(this._tag.id)
       displaySelectedTags()
+
+      recipesList.resetFilteredList()
+      recipesList.filterListBySelectedTags()
+
+      recipesList.filterListByKeyword(searchInput.keyword)
+
+      displayRecipeCards()
+      updateFilterButtonsTagLists()
     })
   }
 

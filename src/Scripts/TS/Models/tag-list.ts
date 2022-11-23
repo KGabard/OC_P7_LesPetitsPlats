@@ -51,10 +51,7 @@ export class TagList {
   }
 
   includesTag(targetTag: Tag) {
-    if (this._list.find((tag) => tag.id === targetTag.id)) {
-      return true
-    }
-
-    return false
+    if (!this._list.find((tag) => tag.id === targetTag.id)) return false
+    return true
   }
 }

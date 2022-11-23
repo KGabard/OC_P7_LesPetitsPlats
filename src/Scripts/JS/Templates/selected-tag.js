@@ -1,5 +1,7 @@
+import { updateFilterButtonsTagLists } from '../Components/search-filters.js';
 import { displaySelectedTags } from '../Components/tag-list.js';
-import { recipesList } from '../Pages/index.js';
+import { displayRecipeCards } from '../Layouts/recipes-gallery.js';
+import { recipesList, searchInput } from '../Pages/index.js';
 export class SelectedTag {
     constructor(tag) {
         this._tag = tag;
@@ -13,6 +15,11 @@ export class SelectedTag {
         deleteIcon.addEventListener('click', () => {
             recipesList.selectedTagsList.removeTag(this._tag.id);
             displaySelectedTags();
+            recipesList.resetFilteredList();
+            recipesList.filterListBySelectedTags();
+            recipesList.filterListByKeyword(searchInput.keyword);
+            displayRecipeCards();
+            updateFilterButtonsTagLists();
         });
     }
     _createTagElmt() {

@@ -28,7 +28,7 @@ export class FilterButton {
         this._displayTagList();
         closeElmt(this._buttonElmt);
     }
-    resetTagList(newTagList) {
+    updateTagList(newTagList) {
         this._tagList.replaceTagList(newTagList);
         this._filteredTaglist.replaceTagList(this._tagList);
         this._displayTagList();
@@ -58,28 +58,28 @@ export class FilterButton {
     _createButtonElmt() {
         const buttonClass = 'search-filter';
         let label = '';
-        let typeClass = '';
+        let type = '';
         switch (this._type) {
             case 'ingredient':
                 label = 'Ingrédients';
-                typeClass = buttonClass + '--ingredient';
+                type = '--ingredient';
                 break;
             case 'appliance':
                 label = 'Appareils';
-                typeClass = buttonClass + '--appliance';
+                type = '--appliance';
                 break;
             case 'utensil':
                 label = 'Ustensiles';
-                typeClass = buttonClass + '--utensil';
+                type = '--utensil';
                 break;
             default:
                 break;
         }
         const buttonElmt = document.createElement('div');
-        buttonElmt.classList.add(buttonClass, typeClass);
+        buttonElmt.classList.add(buttonClass, buttonClass + type);
         buttonElmt.innerHTML = `
-      <label class="search-filter__label search-filter__label--active" for="search-filter__input">${label}</label>
-      <input type="text" class="search-filter__input" id="search-filter__input" placeholder="Rechercher un ingrédient" autocomplete="off">
+      <label class="search-filter__label search-filter__label--active" for="search-filter__input${type}">${label}</label>
+      <input type="text" class="search-filter__input" id="search-filter__input${type}" placeholder="Rechercher un ingrédient" autocomplete="off">
       <i class="search-filter__chevron-icon fa-solid fa-chevron-down"></i>
       <ul class="search-filter__list"></ul>
     `;
