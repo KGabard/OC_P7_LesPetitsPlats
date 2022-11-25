@@ -1,9 +1,10 @@
-- Mettre en place les attributs "private" dans les classes
-- « Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.
-- Sur une branche faire le premier algo (méthodes de l'objet array) puis créer une 2ème branche avec le 2ème algo (boucles natives JS)
 - Remplir la fiche d'investigation et l'algorigramme
+- Ajouter un sticker ou une illustration quand aucune recette ne correspond
+- Sur une branche faire le premier algo (méthodes de l'objet array) puis créer une 2ème branche avec le 2ème algo (boucles natives JS)
 - Benchmark de 2-3 méthodes pour comparer les 2 algo
 
+X Mettre en place les attributs "private" dans les classes
+X « Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.
 X Séléction par tag
 X Supprimer un tag
 X Faire l'algorigramme

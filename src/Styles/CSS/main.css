@@ -359,4 +359,9 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(368px, 1fr));
   gap: 48px;
   margin-bottom: 72px;
+}
+.recipes-gallery__no-recipe {
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
 }/*# sourceMappingURL=main.css.map */

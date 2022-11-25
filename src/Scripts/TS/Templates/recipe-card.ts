@@ -1,8 +1,8 @@
 import type { Recipe } from '../Models/recipe.js'
 
 export class RecipeCard {
-  _recipe: Recipe
-  _cardElmt: HTMLElement
+  private readonly _recipe: Recipe
+  private readonly _cardElmt: HTMLElement
 
   constructor(recipe: Recipe) {
     this._recipe = recipe
@@ -13,7 +13,7 @@ export class RecipeCard {
     return this._cardElmt
   }
 
-  _addIngredientItemElmts(cardElmt: HTMLElement) {
+  private _addIngredientItemElmts(cardElmt: HTMLElement) {
     const list = cardElmt.querySelector(
       '.recipe-card__infos__description__ingredients-list'
     )! as HTMLUListElement
@@ -30,7 +30,7 @@ export class RecipeCard {
     })
   }
 
-  _createCardElmt() {
+  private _createCardElmt() {
     const cardElmt = document.createElement('article')
     cardElmt.classList.add('recipe-card')
     cardElmt.innerHTML = `
@@ -53,55 +53,3 @@ export class RecipeCard {
     return cardElmt
   }
 }
-
-;`
-<article class="recipe-card">
-<div class="recipe-card__picture"></div>
-<div class="recipe-card__infos">
-  <div class="recipe-card__infos__header">
-    <h2 class="recipe-card__infos__header__title">Titre suih d hudz hdaih azohi i dho hz aidh a</h2>
-    <div class="recipe-card__infos__header__time-container">
-      <i class="recipe-card__infos__header__time-icon fa-regular fa-clock"></i>
-      <p class="recipe-card__infos__header__time">?? min</p>
-    </div>
-  </div>
-  <div class="recipe-card__infos__description">
-    <ul class="recipe-card__infos__description__ingredients-list">
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient suiy qs yqsy ocdqs yoi</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient hduh eoi dsussu szszui</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-      <li class="recipe-card__infos__description__ingredients-list__item">
-        <span class="strong">Ingrédient</span>: quantité
-      </li>
-    </ul>
-    <p class="recipe-card__infos__description__text">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati veritatis ducimus expedita at asperiores perferendis dicta fugit enim quos maiores nisi nulla, amet reprehenderit officia, eveniet ea exercitationem quisquam iste perspiciatis! Eaque modi at corrupti praesentium eos. Ab debitis eaque iste modi ipsum, quas tempore obcaecati labore nisi omnis?
-    </p>
-  </div>
-</div>
-</article>
-`

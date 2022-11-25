@@ -67,14 +67,8 @@ export class Recipe {
         return false;
     }
     includesTagList(taglist) {
-        // console.log('selectedTags:')
-        // console.log(taglist)
-        // console.log('recipe')
-        // console.log(this._recipeData.name)
-        // console.log(this.ingredientTags)
         let tagListIncluded = true;
         taglist.list.forEach((tag) => {
-            // console.log(this.includesTag(tag))
             if (!this.includesTag(tag))
                 tagListIncluded = false;
         });

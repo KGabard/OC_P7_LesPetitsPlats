@@ -5,8 +5,8 @@ import type { Tag } from '../Models/tag.js'
 import { recipesList, searchInput } from '../Pages/index.js'
 
 export class SelectedTag {
-  _tag: Tag
-  _tagElmt: HTMLLIElement
+  private readonly _tag: Tag
+  private readonly _tagElmt: HTMLLIElement
 
   constructor(tag: Tag) {
     this._tag = tag
@@ -17,7 +17,7 @@ export class SelectedTag {
     return this._tagElmt
   }
 
-  _addDeleteEvent(tagElmt: HTMLLIElement) {
+  private _addDeleteEvent(tagElmt: HTMLLIElement) {
     const deleteIcon = tagElmt.querySelector(
       '.tag-list__item__delete-icon'
     )! as HTMLElement
@@ -35,7 +35,7 @@ export class SelectedTag {
     })
   }
 
-  _createTagElmt() {
+  private _createTagElmt() {
     const tagBaseClass = 'tag-list__item'
     let tagTypeClass = ''
 

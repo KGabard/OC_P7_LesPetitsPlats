@@ -2,7 +2,7 @@ import { normalizeString } from '../Utils/js-functions.js'
 import type { Tag } from './tag.js'
 
 export class TagList {
-  _list: Tag[]
+  private _list: Tag[]
 
   constructor() {
     this._list = []

@@ -34,7 +34,6 @@ export class SearchInput {
                 updateFilterButtonsTagLists();
             }
             else {
-                console.log('previous keyword not included');
                 recipesList.resetFilteredList();
                 recipesList.filterListBySelectedTags();
                 if (this.keyword.length >= 3)

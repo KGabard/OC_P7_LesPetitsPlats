@@ -36,18 +36,13 @@ export class RecipesList {
   }
 
   filterListBySelectedTags() {
-    this.filteredList = this.filteredList.filter((recipe) => {
-      if (recipe.includesTagList(this.selectedTagsList)) {
-        console.log(recipe.name)
-      }
-
-      return recipe.includesTagList(this.selectedTagsList)
-    })
-    console.log(this.filteredList.length)
+    this.filteredList = this.filteredList.filter((recipe) =>
+      recipe.includesTagList(this.selectedTagsList)
+    )
     this._updateTagsList()
   }
 
-  _updateTagsList() {
+  private _updateTagsList() {
     this.ingredientsList.emptyList()
     this.appliancesList.emptyList()
     this.utensilsList.emptyList()
@@ -63,7 +58,7 @@ export class RecipesList {
     this.utensilsList.sortByTagLabel()
   }
 
-  _importRecipesData() {
+  private _importRecipesData() {
     const importedRecipesList: Recipe[] = []
     recipesData.forEach((recipeData) => {
       importedRecipesList.push(new Recipe(recipeData))

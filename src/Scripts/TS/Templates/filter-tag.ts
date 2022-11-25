@@ -5,8 +5,8 @@ import type { Tag } from '../Models/tag.js'
 import { recipesList } from '../Pages/index.js'
 
 export class FilterTag {
-  _tag: Tag
-  _tagElmt: HTMLLIElement
+  private readonly _tag: Tag
+  private readonly _tagElmt: HTMLLIElement
 
   constructor(tag: Tag) {
     this._tag = tag
@@ -17,7 +17,7 @@ export class FilterTag {
     return this._tagElmt
   }
 
-  _addSelectEvent(tagElmt: HTMLLIElement) {
+  private _addSelectEvent(tagElmt: HTMLLIElement) {
     tagElmt.addEventListener('click', () => {
       recipesList.selectedTagsList.addTag(this._tag)
       displaySelectedTags()
@@ -29,7 +29,7 @@ export class FilterTag {
     })
   }
 
-  _createTagElmt() {
+  private _createTagElmt() {
     const tagElmt = document.createElement('li')
     tagElmt.classList.add('search-filter__list__item')
     tagElmt.setAttribute('data-id', this._tag.id)

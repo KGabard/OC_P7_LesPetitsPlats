@@ -14,8 +14,8 @@ export class SearchInput {
     return SearchInput.instance
   }
 
-  _inputElmt: HTMLInputElement
-  _previousKeyword: string
+  private readonly _inputElmt: HTMLInputElement
+  private _previousKeyword: string
 
   private constructor() {
     this._inputElmt = document.querySelector(
@@ -29,7 +29,7 @@ export class SearchInput {
     return normalizeString(this._inputElmt.value)
   }
 
-  _isPreviousKeywordStillIncluded() {
+  private _isPreviousKeywordStillIncluded() {
     if (this.keyword.startsWith(normalizeString(this._previousKeyword))) {
       this._previousKeyword = this.keyword
       return true
@@ -38,7 +38,7 @@ export class SearchInput {
     return false
   }
 
-  _addInputListener() {
+  private _addInputListener() {
     this._inputElmt.addEventListener('input', () => {
       if (this._isPreviousKeywordStillIncluded()) {
         if (this.keyword.length < 3) return
@@ -48,8 +48,6 @@ export class SearchInput {
         displayRecipeCards()
         updateFilterButtonsTagLists()
       } else {
-        console.log('previous keyword not included')
-
         recipesList.resetFilteredList()
         recipesList.filterListBySelectedTags()
 

@@ -22,13 +22,7 @@ export class RecipesList {
         this._updateTagsList();
     }
     filterListBySelectedTags() {
-        this.filteredList = this.filteredList.filter((recipe) => {
-            if (recipe.includesTagList(this.selectedTagsList)) {
-                console.log(recipe.name);
-            }
-            return recipe.includesTagList(this.selectedTagsList);
-        });
-        console.log(this.filteredList.length);
+        this.filteredList = this.filteredList.filter((recipe) => recipe.includesTagList(this.selectedTagsList));
         this._updateTagsList();
     }
     _updateTagsList() {

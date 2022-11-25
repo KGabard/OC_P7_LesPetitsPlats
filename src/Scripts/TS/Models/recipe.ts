@@ -7,10 +7,10 @@ import { TagList } from './tag-list.js'
 import { Tag } from './tag.js'
 
 export class Recipe {
-  _recipeData: RecipeDataType
   ingredientTags: TagList
   applianceTags: TagList
   utensilTags: TagList
+  private readonly _recipeData: RecipeDataType
 
   constructor(recipeData: RecipeDataType) {
     this._recipeData = recipeData
@@ -89,21 +89,14 @@ export class Recipe {
   }
 
   includesTagList(taglist: TagList) {
-    // console.log('selectedTags:')
-    // console.log(taglist)
-    // console.log('recipe')
-    // console.log(this._recipeData.name)
-    // console.log(this.ingredientTags)
     let tagListIncluded = true
     taglist.list.forEach((tag) => {
-      // console.log(this.includesTag(tag))
-
       if (!this.includesTag(tag)) tagListIncluded = false
     })
     return tagListIncluded
   }
 
-  _createIngredientTags() {
+  private _createIngredientTags() {
     const tags = new TagList()
     this._recipeData.ingredients.forEach((ingredient) => {
       tags.addTag(new Tag(ingredient.ingredient, 'ingredient'))
@@ -111,13 +104,13 @@ export class Recipe {
     return tags
   }
 
-  _createApplianceTags() {
+  private _createApplianceTags() {
     const tags = new TagList()
     tags.addTag(new Tag(this._recipeData.appliance, 'appliance'))
     return tags
   }
 
-  _createUtensilTags() {
+  private _createUtensilTags() {
     const tags = new TagList()
     this._recipeData.ustensils.forEach((utensil) => {
       tags.addTag(new Tag(utensil, 'utensil'))

@@ -6,4 +6,8 @@
   );
   gap: 48px;
   margin-bottom: 72px;
+
+  &__no-recipe {
+    @include typographies(label)
+  }
 }

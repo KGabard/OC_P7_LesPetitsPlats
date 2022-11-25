@@ -4,10 +4,10 @@ import type { Tag } from '../Models/tag.js'
 import { TagList } from '../Models/tag-list.js'
 
 export class FilterButton {
-  _tagList: TagList
-  _filteredTaglist: TagList
-  _type: 'ingredient' | 'appliance' | 'utensil'
-  _buttonElmt: HTMLDivElement
+  private readonly _tagList: TagList
+  private readonly _filteredTaglist: TagList
+  private readonly _type: 'ingredient' | 'appliance' | 'utensil'
+  private readonly _buttonElmt: HTMLDivElement
 
   constructor(type: 'ingredient' | 'appliance' | 'utensil') {
     this._tagList = new TagList()
@@ -44,32 +44,32 @@ export class FilterButton {
     this._displayTagList()
   }
 
-  _displayTagList() {
+  private _displayTagList() {
     this._listElmt.innerHTML = ''
     this._filteredTaglist.list.forEach((tag) => {
       this._listElmt.appendChild(new FilterTag(tag).tagElmt)
     })
   }
 
-  get _listElmt() {
+  private get _listElmt() {
     return this._buttonElmt.querySelector(
       '.search-filter__list'
     )! as HTMLUListElement
   }
 
-  get _chevronElmt() {
+  private get _chevronElmt() {
     return this._buttonElmt.querySelector(
       '.search-filter__chevron-icon'
     )! as HTMLElement
   }
 
-  get _inputElmt() {
+  private get _inputElmt() {
     return this._buttonElmt.querySelector(
       '.search-filter__input'
     )! as HTMLInputElement
   }
 
-  _handleInputEvent() {
+  private _handleInputEvent() {
     this._inputElmt.addEventListener('input', () => {
       this._filteredTaglist.replaceTagList(this._tagList)
       this._filteredTaglist.filterList(this._inputElmt.value)
@@ -77,7 +77,7 @@ export class FilterButton {
     })
   }
 
-  _createButtonElmt() {
+  private _createButtonElmt() {
     const buttonClass = 'search-filter'
     let label = ''
     let type = ''
