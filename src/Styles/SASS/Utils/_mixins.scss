@@ -4,11 +4,17 @@
 //   }
 // }
 
-// @mixin mobile {
-//   @media screen and (max-width: 768px) {
-//     @content;
-//   }
-// }
+@mixin mobile {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media screen and (max-width: 425px) {
+    @content;
+  }
+}
 
 @mixin typographies($type) {
   $typography: map-get($typographies, $type);

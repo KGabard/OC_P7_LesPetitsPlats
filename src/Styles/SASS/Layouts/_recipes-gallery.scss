@@ -1,13 +1,28 @@
 .recipes-gallery {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax($recipe-card-min-width, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax($recipe-card-min-width, 1fr));
   gap: 48px;
   margin-bottom: 72px;
 
-  &__no-recipe {
-    @include typographies(label)
+  &__no-recipe-found {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    &__text {
+      @include typographies(label);
+    }
+    &__image {
+      width: 300px;
+      align-self: center;
+    }
+  }
+}
+
+@include small-mobile {
+  .recipes-gallery {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax($recipe-card-small-width, 1fr)
+    );
   }
 }

@@ -24,3 +24,12 @@
     right: 16px;
   }
 }
+
+@include mobile {
+  .search-input {
+    &__input {
+      padding-left: 16px;
+      padding-right: 56px;
+    }
+  }
+}

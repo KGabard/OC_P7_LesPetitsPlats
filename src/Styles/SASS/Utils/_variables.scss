@@ -1,16 +1,16 @@
 $font-lato: 'Lato', sans-serif;
 $font-roboto: 'Roboto', sans-serif;
 
-$highlight-ingredient: #3282F7;
-$highlight-appliance: #68D9A4;
-$highlight-utensil: #ED6454;
+$highlight-ingredient: #3282f7;
+$highlight-appliance: #68d9a4;
+$highlight-utensil: #ed6454;
 
-$neutral-primary: #C7BEBE;
-$neutral-secondary: #E7E7E7;
+$neutral-primary: #c7bebe;
+$neutral-secondary: #e7e7e7;
 
 $gutter-desktop: 96px;
 // $gutter-tablet: 32px;
-// $gutter-mobile: 0px;
+$gutter-mobile: 16px;
 
 // $media-card-width: 350px;
 // $media-card-height: 300px;
@@ -28,3 +28,5 @@ $recipe-card-min-width: 368px;
 $recipe-card-max-width: 512px;
 $recipe-card-height: 360px;
 $recipe-card-padding: 20px;
+
+$recipe-card-small-width: calc(320px - 2 * $gutter-mobile);

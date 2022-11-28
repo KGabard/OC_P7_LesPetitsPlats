@@ -12,3 +12,8 @@ body {
   padding: 0 $gutter-desktop;
 }
 
+@include mobile {
+  body {
+    padding: 0 $gutter-mobile;
+  }
+}

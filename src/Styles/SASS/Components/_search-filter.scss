@@ -1,5 +1,6 @@
 .search-filter {
   width: $filter-min-width;
+  max-width: 100%;
   height: $filter-min-height;
   @include filters-color();
   position: relative;
@@ -9,7 +10,6 @@
   &--active {
     z-index: 100;
     width: $filter-max-width;
-    max-width: 100%;
     transition-duration: 350ms;
     border-radius: 4px 4px 0 0;
     .search-filter {
@@ -33,9 +33,9 @@
 
   &:not(&--active) {
     &:hover {
-      //! Darken filter button
-      // @include filters-color($lighten: -10%);
-      // background-color: red;
+      &.search-filter {
+        @include filters-color($lighten: -10%);
+      }
     }
     .search-filter {
       &__label {
@@ -119,5 +119,11 @@
         transition: background-color 150ms ease-in;
       }
     }
+  }
+}
+
+@include mobile {
+  .search-filter {
+    width: $filter-max-width;
   }
 }

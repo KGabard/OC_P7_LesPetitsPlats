@@ -12,9 +12,11 @@ const recipesGalleryEmlt = document.querySelector(
 // Functions
 //----------
 const noRecipeElmt = () => {
-  const elmt = document.createElement('p')
-  elmt.classList.add('recipes-gallery__no-recipe')
-  elmt.innerHTML = 'Malheuresement aucune recette ne correspond à vos critères…'
+  const elmt = document.createElement('div')
+  elmt.classList.add('recipes-gallery__no-recipe-found')
+  elmt.innerHTML = `
+  <p class="recipes-gallery__no-recipe-found__text">Malheuresement aucune recette ne correspond à vos critères…</p>
+  <img class="recipes-gallery__no-recipe-found__image" src="./src/Assets/Images/empty.svg" alt="" aria-hidden="true">`
   return elmt
 }
 
