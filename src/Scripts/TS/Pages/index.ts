@@ -1,6 +1,5 @@
 import { initSearchFilters } from '../Components/search-filters.js'
 import { SearchInput } from '../Components/search-input.js'
-// import { handleSearchInput } from '../Components/search-input.js'
 import { displaySelectedTags } from '../Components/tag-list.js'
 import { displayRecipeCards } from '../Layouts/recipes-gallery.js'
 import { RecipesList } from '../Models/recipes-list.js'
@@ -12,7 +11,6 @@ const initIndexPage = () => {
   initSearchFilters()
   displaySelectedTags()
   displayRecipeCards()
-  // handleSearchInput()
 }
 
 initIndexPage()

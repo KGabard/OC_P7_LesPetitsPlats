@@ -1,7 +1,6 @@
 // import { recipesData } from '../../../Data/recipes.js'
 // "Could not find a declaration file for module"
 import { recipesData } from '../Data/recipes.js'
-import { recipesList } from '../Pages/index.js'
 import { Recipe } from './recipe.js'
 import { TagList } from './tag-list.js'
 

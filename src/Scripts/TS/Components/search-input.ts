@@ -35,6 +35,7 @@ export class SearchInput {
       return true
     }
 
+    this._previousKeyword = this.keyword
     return false
   }
 
@@ -60,44 +61,3 @@ export class SearchInput {
     })
   }
 }
-
-;`
-//-------------
-// DOM Elements
-//-------------
-const searchInputEmlt = document.querySelector(
-  '.search-input__input'
-)! as HTMLInputElement
-
-//----------
-// Functions
-//----------
-let previousSearch = ''
-
-const previousSearchStillIncluded = () => {
-  const currentInput = normalizeString(searchInputEmlt.value)
-  let isStillIncluded = false
-  isStillIncluded = currentInput.startsWith(normalizeString(previousSearch))
-  previousSearch = currentInput
-  return isStillIncluded
-}
-
-//----------------
-// Event Listeners
-//----------------
-export const handleSearchInput = () => {
-  searchInputEmlt.addEventListener('input', () => {
-    let currentInput = searchInputEmlt.value
-    if (currentInput.length < 3) currentInput = ''
-
-    if (!previousSearchStillIncluded()) {
-      recipesList.resetFilteredList()
-      recipesList.filterListByTags()
-    }
-
-    recipesList.filterListByKeyword(currentInput)
-    displayRecipeCards()
-    resetFilterButtonsTagList()
-  })
-}
-`

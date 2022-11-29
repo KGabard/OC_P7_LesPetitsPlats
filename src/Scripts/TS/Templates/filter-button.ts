@@ -1,6 +1,5 @@
 import { FilterTag } from './filter-tag.js'
 import { closeElmt, elmtIsActive, openElmt } from '../Utils/html-functions.js'
-import type { Tag } from '../Models/tag.js'
 import { TagList } from '../Models/tag-list.js'
 
 export class FilterButton {
