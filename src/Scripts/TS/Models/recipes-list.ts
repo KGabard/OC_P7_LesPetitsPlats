@@ -14,7 +14,7 @@ export class RecipesList {
 
   constructor() {
     this.originList = this._importRecipesData()
-    this.filteredList = this.originList
+    this.filteredList = this.originList.slice()
     this.ingredientsList = new TagList()
     this.appliancesList = new TagList()
     this.utensilsList = new TagList()
@@ -23,11 +23,12 @@ export class RecipesList {
   }
 
   resetFilteredList() {
-    this.filteredList = this.originList
+    this.filteredList = this.originList.slice()
     this._updateTagsList()
   }
 
   filterListByKeyword(filter: string) {
+    // Algo1 : use of array methods
     this.filteredList = this.filteredList.filter((recipe) =>
       recipe.includesKeyword(filter)
     )
@@ -46,6 +47,7 @@ export class RecipesList {
     this.appliancesList.emptyList()
     this.utensilsList.emptyList()
 
+    // Algo1 : use of array methods
     this.filteredList.forEach((recipe) => {
       this.ingredientsList.addTagList(recipe.ingredientTags)
       this.appliancesList.addTagList(recipe.applianceTags)

@@ -60,9 +60,12 @@ export class Recipe {
     keyword = normalizeString(keyword)
 
     if (normalizeString(this._recipeData.name).includes(keyword)) return true
+
+    // Algo1 : use of array methods
     this._recipeData.ingredients.forEach((ingredient) => {
       if (normalizeString(ingredient.ingredient).includes(keyword)) return true
     })
+
     if (normalizeString(this._recipeData.description).includes(keyword))
       return true
 
