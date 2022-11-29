@@ -18,7 +18,15 @@ export class RecipesList {
         this._updateTagsList();
     }
     filterListByKeyword(filter) {
-        this.filteredList = this.filteredList.filter((recipe) => recipe.includesKeyword(filter));
+        // Algo2 : use of native loops
+        for (let i = this.filteredList.length - 1; i >= 0; i--) {
+            const recipe = this.filteredList[i];
+            if (!recipe.includesKeyword(filter)) {
+                this.filteredList = this.filteredList
+                    .slice(0, i)
+                    .concat(this.filteredList.slice(i + 1));
+            }
+        }
         this._updateTagsList();
     }
     filterListBySelectedTags() {
@@ -29,11 +37,12 @@ export class RecipesList {
         this.ingredientsList.emptyList();
         this.appliancesList.emptyList();
         this.utensilsList.emptyList();
-        this.filteredList.forEach((recipe) => {
+        // Algo2 : use of native loops
+        for (const recipe of this.filteredList) {
             this.ingredientsList.addTagList(recipe.ingredientTags);
             this.appliancesList.addTagList(recipe.applianceTags);
             this.utensilsList.addTagList(recipe.utensilTags);
-        });
+        }
         this.ingredientsList.sortByTagLabel();
         this.appliancesList.sortByTagLabel();
         this.utensilsList.sortByTagLabel();

@@ -60,9 +60,12 @@ export class Recipe {
     keyword = normalizeString(keyword)
 
     if (normalizeString(this._recipeData.name).includes(keyword)) return true
-    this._recipeData.ingredients.forEach((ingredient) => {
+
+    // Algo2 : use of native loops
+    for (const ingredient of this._recipeData.ingredients) {
       if (normalizeString(ingredient.ingredient).includes(keyword)) return true
-    })
+    }
+
     if (normalizeString(this._recipeData.description).includes(keyword))
       return true
 
