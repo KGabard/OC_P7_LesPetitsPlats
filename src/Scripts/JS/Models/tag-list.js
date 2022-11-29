@@ -23,7 +23,6 @@ export class TagList {
     }
     sortByTagLabel() {
         const tagLabelsComparator = (a, b) => a.label.localeCompare(b.label);
-        this._list.sort(tagLabelsComparator);
         // Algo2 : use of native loops
         for (let i = 1; i < this._list.length; i++) {
             for (let j = 0; j < i; j++) {

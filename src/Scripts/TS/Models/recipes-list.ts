@@ -14,7 +14,7 @@ export class RecipesList {
 
   constructor() {
     this.originList = this._importRecipesData()
-    this.filteredList = this.originList
+    this.filteredList = this.originList.slice()
     this.ingredientsList = new TagList()
     this.appliancesList = new TagList()
     this.utensilsList = new TagList()
@@ -23,7 +23,7 @@ export class RecipesList {
   }
 
   resetFilteredList() {
-    this.filteredList = this.originList
+    this.filteredList = this.originList.slice()
     this._updateTagsList()
   }
 
@@ -32,9 +32,13 @@ export class RecipesList {
     for (let i = this.filteredList.length - 1; i >= 0; i--) {
       const recipe = this.filteredList[i]
       if (!recipe.includesKeyword(filter)) {
-        this.filteredList = this.filteredList
-          .slice(0, i)
-          .concat(this.filteredList.slice(i + 1))
+        if (i < this.filteredList.length - 1) {
+          for (let j = i; j < this.filteredList.length - 1; j++) {
+            this.filteredList[j] = this.filteredList[j + 1]
+          }
+        }
+
+        this.filteredList.length = this.filteredList.length - 1
       }
     }
 
