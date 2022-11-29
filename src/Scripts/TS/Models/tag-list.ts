@@ -31,10 +31,13 @@ export class TagList {
   sortByTagLabel() {
     const tagLabelsComparator: (a: Tag, b: Tag) => number = (a, b) =>
       a.label.localeCompare(b.label)
+
+    // Algo1 : use of array methods
     this._list.sort(tagLabelsComparator)
   }
 
   addTagList(newTagList: TagList) {
+    // Algo1 : use of array methods
     newTagList.list.forEach((tag) => {
       this.addTag(tag)
     })

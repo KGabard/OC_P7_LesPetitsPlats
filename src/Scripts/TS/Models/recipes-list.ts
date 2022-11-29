@@ -28,6 +28,7 @@ export class RecipesList {
   }
 
   filterListByKeyword(filter: string) {
+    // Algo1 : use of array methods
     this.filteredList = this.filteredList.filter((recipe) =>
       recipe.includesKeyword(filter)
     )
@@ -46,6 +47,7 @@ export class RecipesList {
     this.appliancesList.emptyList()
     this.utensilsList.emptyList()
 
+    // Algo1 : use of array methods
     this.filteredList.forEach((recipe) => {
       this.ingredientsList.addTagList(recipe.ingredientTags)
       this.appliancesList.addTagList(recipe.applianceTags)
