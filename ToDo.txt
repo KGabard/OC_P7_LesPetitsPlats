@@ -1,7 +1,7 @@
 - Remplir la fiche d'investigation et l'algorigramme
-- Sur une branche faire le premier algo (méthodes de l'objet array) puis créer une 2ème branche avec le 2ème algo (boucles natives JS)
 - Benchmark de 2-3 méthodes pour comparer les 2 algo
 
+X Sur une branche faire le premier algo (méthodes de l'objet array) puis créer une 2ème branche avec le 2ème algo (boucles natives JS)
 X Check validateur HTML et CSS
 X Ajouter un sticker ou une illustration quand aucune recette ne correspond
 X Assombrir les boutons de filtre au survol
