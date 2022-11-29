@@ -14,7 +14,7 @@ export class RecipesList {
 
   constructor() {
     this.originList = this._importRecipesData()
-    this.filteredList = this.originList
+    this.filteredList = this.originList.slice()
     this.ingredientsList = new TagList()
     this.appliancesList = new TagList()
     this.utensilsList = new TagList()
@@ -23,7 +23,7 @@ export class RecipesList {
   }
 
   resetFilteredList() {
-    this.filteredList = this.originList
+    this.filteredList = this.originList.slice()
     this._updateTagsList()
   }
 
