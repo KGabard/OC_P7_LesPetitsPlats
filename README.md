@@ -21,7 +21,7 @@ Outils :
 - Eslint
 
 Librairie :
-- Benchmark.js : [ici](https://benchmarkjs.com/)
+- Benchmark.js : [lien](https://benchmarkjs.com/)
 
 ## Maquettes
 Les maquettes sont fournies par Openclassrooms : [ici](https://www.figma.com/file/xqeE1ZKlHUWi2Efo8r73NK)
