@@ -2,8 +2,8 @@
 
 ## Objectifs
 - Développer un algorithme de recherche.
-- Evaluer et comprarer les performances de plusieurs algorithmes. (librairie Benchmark.js)
-- Rédiger une fiche d’investigation de fonctionnalité et créer un algorigramme. ([lien](./Documents/Fiche_investigation_Algorithme.pdf))
+- Evaluer et comprarer les performances de plusieurs algorithmes. ([lien](./recherches_algorithme/Benchmark/))
+- Rédiger une fiche d’investigation de fonctionnalité et créer un algorigramme. ([lien](./recherches_algorithme/Fiche_investigation_Algorithme.pdf))
 - Organiser les fichiers typescript en modules.
 - Utiliser Eslint en association avec Prettier pour une configuration typescript.
 
